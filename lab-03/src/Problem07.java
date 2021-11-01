@@ -3,26 +3,51 @@ import java.util.Scanner;
 public class Problem07 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter today's day ");
-        int D = input.nextInt();
+        System.out.print("Enter today's day: ");
+        int today = input.nextInt();
+        System.out.print("Enter the number of days elapsed since today: ");
+        int el = input.nextInt();
 
-           if (D > -1 && D < 1) {
-            System.out.println("Today is: Sunday");
-        } else if(D > 0 && D < 2) {
-            System.out.println("Today is: Monday");
-        } else if (D > 1 && D < 3) {
-            System.out.println("Today is: Tuesday");
-        }  else if (D > 2 && D < 4) {
-            System.out.println("Today is: Wednesday");
-        } else if (D > 3 && D < 5) {
-            System.out.println("Today is: Thursday");
-        }  else if (D > 4 && D < 6) {
-            System.out.println("Today is: Friday");
-        }  else if (D > 5 && D < 7) {
-            System.out.println("Today is: Saturday");
+        int sum = today + el;
 
+        if (today == 0) {
+            sum = el;
+        } else if (today > 0 && today < 7) {
+            sum = today + el;
+        }
 
+        if (sum > 6) {
+            sum = sum % 7;
+        }
 
+        if (today == 0) {
+            System.out.print("Today is Sunday");
+        } if (sum == 0) {
+            System.out.print(" and the future day is Sunday" );
+        } if (today == 1) {
+            System.out.print("Today is Monday");
+        } if (sum == 1) {
+            System.out.print(" and the future day is Monday");
+        } if (today == 2) {
+            System.out.print("Today is Tuesday");
+        } if (sum == 2) {
+            System.out.print(" and the future day is Tuesday");
+        } if (today == 3) {
+            System.out.print("Today is Wednesday");
+        } if (sum == 3) {
+            System.out.print(" and the future day is Wednesday");
+        } if (today == 4) {
+            System.out.print("Today is Thursday");
+        } if (sum == 4) {
+            System.out.print(" and the future day is Thursday");
+        } if (today == 5) {
+            System.out.print("Today is Friday");
+        } if (sum == 5) {
+            System.out.print(" and the future day is Friday");
+        } if (today == 6) {
+            System.out.print("Today is Saturday");
+        } if (sum == 6) {
+            System.out.print(" and the future day is Saturday");
         }
     }
 }
