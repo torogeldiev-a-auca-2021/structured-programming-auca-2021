@@ -12,6 +12,5 @@ System.out.println(years + " ano(s)");
 System.out.println(months + " mes(es)");
 System.out.println(days + " dia(s)");
 
-
      }
 }
