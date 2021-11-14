@@ -9,10 +9,10 @@ public class URI1046 {
 
         int minus = y - x;
 
-        if (minus < 0) {
+        if (minus < 0){
             int duration = 24 + (y - x);
             System.out.printf("O JOGO DUROU %d HORA(S)",duration);
-        }else if (minus > 0) {
+        }else if (minus > 0){
             int duration = y - x;
             System.out.printf("O JOGO DUROU %d HORA(S)",duration);
         }else{
