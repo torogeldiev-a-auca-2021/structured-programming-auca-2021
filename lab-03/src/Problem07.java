@@ -9,7 +9,6 @@ public class Problem07 {
         int el = input.nextInt();
 
         int sum = today + el;
-
         if (today == 0) {
             sum = el;
         } else if (today > 0 && today < 7) {

@@ -1,24 +1,19 @@
 import java.util.Scanner;
 
 public class URI1046 {
+
     public static void main(String[] args) {
-        Scanner input =  new Scanner(System.in);
+        Scanner s = new Scanner(System.in);
 
-        int x = input.nextInt();
-        int y = input.nextInt();
+        int a = s.nextInt();
+        int b = s.nextInt();
 
-        int minus = y - x;
-
-        if (minus < 0){
-            int duration = 24 + (y - x);
-            System.out.printf("O JOGO DUROU %d HORA(S)",duration);
-        }else if (minus > 0){
-            int duration = y - x;
-            System.out.printf("O JOGO DUROU %d HORA(S)",duration);
-        }else{
+        if (a > b) {
+            System.out.println("O JOGO DUROU " + (24 - a + b) + " HORA(S)");
+        } else if (a < b) {
+            System.out.println("O JOGO DUROU " + (b - a) + " HORA(S)");
+        } else {
             System.out.println("O JOGO DUROU 24 HORA(S)");
-
-
         }
     }
 }
