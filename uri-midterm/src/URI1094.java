@@ -5,24 +5,24 @@ public class URI1094 {
         double perC,perS,perR;
         Scanner input =new Scanner(System.in);
         int a =input.nextInt();
-        for(int i = 1;i <= a;i++){
+        for(int i = 1 ; i <= a ; i++){
             b = input.nextDouble();
             String s = input.next();
             if(s.equals("S")){
-                sumS +=b;
+                sumS += b;
             }
             if(s.equals("R")){
-                sumR +=b;
+                sumR += b;
             }
             if(s.equals("C")){
-                sumC +=b;
+                sumC += b;
             }
 
         }
         sumAll+=sumC+sumR+sumS;
-        perC=(sumC*100) / sumAll;
-        perS=(sumS*100) / sumAll;
-        perR=(sumR*100) / sumAll;
+        perC=(sumC * 100) / sumAll;
+        perS=(sumS * 100) / sumAll;
+        perR=(sumR * 100) / sumAll;
         System.out.printf("Total: %.0f cobaias\n", sumAll);
         System.out.printf("Total de coelhos: %.0f\n", sumC);
         System.out.printf("Total de ratos: %.0f\n",sumR );
