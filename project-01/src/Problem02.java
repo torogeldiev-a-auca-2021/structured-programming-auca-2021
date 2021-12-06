@@ -52,6 +52,12 @@ public class Problem02 extends PApplet {
         circle(circleGPosX,circleGPosY,circleRadius);
         fill( 0, 0 ,colorBlue);
         circle(circleBPosX,circleBPosY,circleRadius);
+        circleRPosX += dX * direction;
+        circleRPosY += dY * direction;
+        circleGPosX += circleRadius * direction;
+        circleGPosY += dY * direction;
+        circleBPosX += dX * direction;
+        circleBPosY += dY * direction;
 
     }
 
