@@ -1,7 +1,5 @@
 import processing.core.*;
 
-import javax.print.DocFlavor;
-
 public class Problem01 extends PApplet {
     public static float textPosX;
     public static float textPosY;
