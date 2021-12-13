@@ -29,12 +29,15 @@ public class Problem03 extends PApplet {
         rect(rectTopLeftX1, rectTopLeftY1, RECT_WIDTH, RECT_HEIGHT);
         rect(rectTopLeftX2, rectTopLeftY2, RECT_WIDTH, RECT_HEIGHT);
         rect(rectTopLeftX3, rectTopLeftY3, RECT_WIDTH, RECT_HEIGHT);
-        fill(255,255,255);
-        text("Java Programming Language",width / 2f,height / 3.7f  );
-        fill(255,255,255);
-        text("Kotlin Programming Language",width / 2f,height / 2.7f  );
-        fill(255,255,255);
-        text("Scala Programming Language",width / 2f,height / 2.05f  );
+
+
+        fill(255, 255, 255);
+        text("Java Programming Language", width / 2f, height / 3.7f);
+        fill(255, 255, 255);
+        text("Kotlin Programming Language", width / 2f, height / 2.7f);
+        fill(255, 255, 255);
+        text("Scala Programming Language", width / 2f, height / 2.05f);
+
 
 
 
@@ -47,12 +50,22 @@ public class Problem03 extends PApplet {
         if (rectTopLeftX1 <= mouseX && mouseX <= rectTopLeftX1 + RECT_WIDTH && rectTopLeftY1 <= mouseY && mouseY <= rectTopLeftY1 + RECT_HEIGHT) {
             fill(255, 255, 0);
             text("Year: 1995. PYPL Index:2", width / 2f, height - height / 10f);
+            fill(255,0,0);
+            text("Java Programming Language", width / 2f, height / 3.7f);
+
         } else if (rectTopLeftX2 <= mouseX && mouseX <= rectTopLeftX2 + RECT_WIDTH && rectTopLeftY1 <= mouseY && mouseY <= rectTopLeftY2 + RECT_HEIGHT) {
             fill(255, 255, 0);
             text("Year: 2011. PYPL Index:11", width / 2f, height - height / 10f);
+            fill(255,0,0);
+            text("Kotlin Programming Language", width / 2f, height / 2.7f);
         } else if (rectTopLeftX3 <= mouseX && mouseX <= rectTopLeftX3 + RECT_WIDTH && rectTopLeftY3 <= mouseY && mouseY <= rectTopLeftY3 + RECT_HEIGHT) {
             fill(255, 255, 0);
             text("Year: 2004. PYPL Index:20", width / 2f, height - height / 10f);
+            fill(255,0,0);
+            text("Scala Programming Language", width / 2f, height / 2.05f);
+
+
+
 
         }
 
