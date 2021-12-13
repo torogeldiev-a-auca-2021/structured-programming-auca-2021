@@ -1,39 +1,34 @@
 import processing.core.*;
 
 public class Problem03 extends PApplet {
-    public static float Rect1PosX;
-    public static float Rect1PosY;
-    public static float Rect1Width;
-    public static float Rect1Height;
-    public static float Rect2PosX;
-    public static float Rect2PosY;
-    public static float Rect2Width;
-    public static float Rect2Height;
-    public static float Rect3PosX;
-    public static float Rect3PosY;
-    public static float Rect3Width;
-    public static float Rect3Height;
-    public static float colorB;
-    public static float colorR;
-
-
+    final static float RECT_WIDTH = 400;
+    final static float RECT_HEIGHT = 200;
 
     public void settings() {
         fullScreen();
-        rect(180 , 40, 100,40);
-        colorB = 255;
-        colorR = 255;
-
-
-
     }
 
     public void setup() {
+        textSize(40);
+        textAlign(CENTER);
+        frameRate(30);
     }
 
     public void draw() {
         background(0, 0, 0);
-        rect(180 , 40, 100,40);
+        float rectTopLeftX = width / 2f - RECT_WIDTH / 2f;
+        float rectTopLeftY = height / 4f - RECT_HEIGHT / 2f;
+
+        fill (0, 0 , 255);
+        rect(rectTopLeftX , rectTopLeftY, RECT_WIDTH, RECT_HEIGHT);
+
+
+        fill (0,0,100);
+        ellipse(mouseX, mouseY, 100 , 100);
+        fill (255, 255, 0);
+        text("mouseX: " + mouseX, width / 2f , height / 2f);
+        text("mouseY: " + mouseX, width / 2f , height / 2f + height / 30f);
+
     }
 
     public static void main(String[] args) {
