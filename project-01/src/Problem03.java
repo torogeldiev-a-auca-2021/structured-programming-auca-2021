@@ -42,10 +42,8 @@ public class Problem03 extends PApplet {
 
 
         fill(0, 0, 100);
-        ellipse(mouseX, mouseY, 100, 100);
         fill(255, 255, 0);
-        text("mouseX: " + mouseX, width / 2f, height / 2f);
-        text("mouseY: " + mouseX, width / 2f, height / 2f + height / 30f);
+
 
         if (rectTopLeftX1 <= mouseX && mouseX <= rectTopLeftX1 + RECT_WIDTH && rectTopLeftY1 <= mouseY && mouseY <= rectTopLeftY1 + RECT_HEIGHT) {
             fill(255, 255, 0);
