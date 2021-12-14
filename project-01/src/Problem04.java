@@ -54,13 +54,11 @@ public class Problem04 extends PApplet {
         fill (0,0,0,40);
         rect(0, 0, width, height);
         fill(0,0,0);
-        stroke(0,0,650);
-        strokeWeight(1);
         //rect(rectX, rectY, 20 * circleR, 15 * circleR);
 
         for (int i = 0; i < 20; i++) {
             stroke(0, 0, 250);
-            strokeWeight(5);
+            strokeWeight(1);
             fill(0, 0, 0);
             rect(rectX + i * circleR, rectY, circleR, circleR);
             for (int j = 0; j < 15; j++) {
