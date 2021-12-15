@@ -8,6 +8,12 @@ public class Problem05 extends PApplet {
     float rectX;
     float rectY;
     float size;
+    int row;
+    int column;
+    String Color;
+
+
+
 
 
     public void settings() {
@@ -15,6 +21,7 @@ public class Problem05 extends PApplet {
     }
 
     public void setup() {
+        background(0, 0, 0);
         size = 750 / radius ;
         textSize(30);
         textPosX = width / 2f - width / 9f;
@@ -39,23 +46,46 @@ public class Problem05 extends PApplet {
     }
 
     public void draw() {
-        background(0, 0, 0);
-        fill(255, 255, 0);
-        text("Row: ; Column:  ; Color: ;", textPosX, textPosY);
+        background(0,0,0);
+
+//        fill(255, 255, 0);
+        text("Row:  ; "+ row);
 
         fill(0, 0, 0);
         stroke(192, 192, 192);
         rect(rectX, rectY, 800, 800);
         fill(0, 0, 0);
-//        for (int i = 0; i < radius; i++) {
-//            for (int j = 0; j < radius; j++) {
-//                rect(rectX, rectY, size, size);
-        for (int i = 0; i < radius; i++)
-        for(int l = 0;l < radius;l++){
-            fill(255,255,255);
-            rect(rectX + i * 800 / radius, rectY + l * 800 / radius , 800 / radius, 800 / radius);
+        ellipse(mouseX,mouseY,100,100);
+            for (int i = 0; i < radius; i++){
+                if(i % 2==0){
+                    for(int l = 0; l < radius;l++){
+                        if (l % 2==0){
+                            fill(255,255,255);
+                        } else{
 
-        }
+                            fill(1,50,32);
+                        }
+                        float a = rectX + i * 800/ radius;
+                        float b = rectX + l * 800/ radius;
+                        if (mouseX > rectX && mouseX < a) {
+                        if(mouseY > rectY && mouseX < b);
+                        }
+                        rect(rectX + i * 800 / radius, rectY + l * 800 / radius , 800 / radius, 800 / radius);
+                    }
+                } else {
+                    for(int l = 0;l < radius;l++){
+                        if (l % 2==0){
+                            fill(1,50,32);
+
+                        } else{
+                            fill(255,255,255);
+                        }
+                        rect(rectX + i * 800 / radius, rectY + l * 800 / radius , 800 / radius, 800 / radius);
+
+                    }
+                }
+            }
+
 
 
 

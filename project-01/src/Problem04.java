@@ -98,12 +98,8 @@ public class Problem04 extends PApplet {
 //                line(i, y, i, y + height);
 //            }
 
-//        for(int i = 0; i < RightBorder && i > leftBorder; i+= circleR)
-//            for(int y = 0; y < UpBorder && i > DownBorder; y+=  circleR) {
-//                line(i, y, i + circleR, y);
-//               line(i, y, i, y + circleR);
-//            }
-    }
+           }
+
 
     public static void main(String[] args) {
         PApplet.main("Problem04");
