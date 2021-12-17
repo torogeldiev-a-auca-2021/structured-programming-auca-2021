@@ -6,9 +6,15 @@ public class URI1096 {
         int i = 1;
         int j = 8;
         for (i = 1; i < 10; i += 2) {
-            j--;
-            System.out.print("I=" + i);
-            System.out.println(" J=" + j);
+            for (int count = 0, p = 7; count < 3; count++,p--) {
+                j--;
+                System.out.print("I=" + i);
+                System.out.println(" J=" + p);
+            }
+
         }
     }
 }
+
+
+
