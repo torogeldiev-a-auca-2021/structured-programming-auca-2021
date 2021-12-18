@@ -25,15 +25,16 @@ public class URI1094 {
             perC =(double)  coelhos  * 100 / total;
             perR =(double) ratos * 100 / total;
             perS =(double) sapos * 100 / total;
+            System.out.println("Total: "+ total);
+            System.out.println("Total de coelhos: " + coelhos);
+            System.out.println("Total de ratos: " + ratos);
+            System.out.println("Total de sapos: " + sapos);
+            System.out.printf("Percentual de coelhos: %.2f" , perC);
+            System.out.printf("Percentual de ratos: %.2f" , perR);
+            System.out.printf("Percentual de sapos: %.2f", perS);
 
         }
-        System.out.println("Total: "+ total);
-        System.out.println("Total de coelhos: " + coelhos);
-        System.out.println("Total de ratos: " + ratos);
-        System.out.println("Total de sapos: " + sapos);
-        System.out.printf("Percentual de coelhos: %.2f" , perC);
-        System.out.printf("Percentual de ratos: %.2f" , perR);
-        System.out.printf("Percentual de sapos: %.2f", perS);
+
 
         }
     }
