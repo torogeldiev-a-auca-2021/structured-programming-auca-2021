@@ -10,7 +10,7 @@ public class URI1101 {
             for (int i = Math.min(m, n); i <= Math.max(m, n); i++) {
                 System.out.print(i);
 
-                sum +=i ;
+                sum += i ;
             }
             m = input.nextInt();
             n = input.nextInt();
