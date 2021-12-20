@@ -2,24 +2,25 @@ import java.util.Scanner;
 
 public class URI1134 {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int a = input.nextInt();
-        int alco = 0;
-        int gaso = 0;
-        int diso = 0;
-        while (a != 4) {
+        Scanner sc = new Scanner(System.in);
+        int alc = 0;
 
-            a = input.nextInt();
-            if (a == 1)
-                alco++;
-            else if (a == 2)
-                gaso++;
-            else if (a == 3)
-                diso++;
+        int dis = 0;
+        int gas = 0;
+        while(true){
+            int x = sc.nextInt();
+
+
+            if(x == 1) alc++;
+            if (x == 2) gas++;
+            if(x == 3) dis ++;
+            if(x == 4) break;
+
         }
-        System.out.printf("MUITO OBRIGADO\n" +
-                "Alcool: %d\n" +
-                "Gasolina: %d\n" +
-                "Diesel: %d\n", alco, gaso, diso);
+        System.out.println("MUITO OBRIGADO");
+        System.out.println("Alcool: " + alc);
+        System.out.println("Gasolina: " + gas);
+        System.out.println("Diesel: " + dis);
+
     }
 }

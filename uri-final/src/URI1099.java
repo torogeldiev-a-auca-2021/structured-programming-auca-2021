@@ -8,8 +8,6 @@ public class URI1099 {
         int x ,y;
         for(int i = 1; i <= n; i++){
 
-
-
         }
     }
 }
