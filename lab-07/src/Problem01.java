@@ -13,7 +13,7 @@ public class Problem01 {
             n[sum]++;
         }
         for (int i = 2; i < 13;i++){
-            System.out.printf("%d: %d\n", i, n[i]);
+             System.out.printf("%d: %d\n", i, n[i]);
         }
     }
 }
