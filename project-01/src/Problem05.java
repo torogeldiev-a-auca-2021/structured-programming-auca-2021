@@ -1,5 +1,4 @@
 import processing.core.*;
-
 import javax.swing.*;
 
 public class Problem05 extends PApplet {
@@ -43,9 +42,6 @@ public class Problem05 extends PApplet {
 
     public void draw() {
         background(0, 0, 0);
-        fill(255, 255, 0);
-        text("Row: ; Column:  ; Color: ;",textPosX, textPosY);
-
         fill(0, 0, 0);
         stroke(192, 192, 192);
         rect(rectX, rectY, 800, 800);
@@ -63,6 +59,7 @@ public class Problem05 extends PApplet {
                     float a = rectX + i * 800 / radius;
                     float b = rectX + l * 800 / radius;
                     if (mouseX > rectX && mouseX < a &&  mouseY > rectY && mouseX < b) {
+                        stroke(2);
 
                     }
                     rect(rectX + i * 800 / radius, rectY + l * 800 / radius, 800 / radius, 800 / radius);
@@ -81,6 +78,9 @@ public class Problem05 extends PApplet {
                 }
             }
         }
+        fill(255,255,0);
+        text("Row: ; Column:  ; Color: ;",textPosX, textPosY);
+
 
 
     }

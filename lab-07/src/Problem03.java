@@ -10,8 +10,10 @@ public class Problem03 {
             System.out.print("Enter element " + i + ": ");
             n[i] = sc.nextInt();
         }
+        System.out.print("Before reversing: ");
         printArray(n);
         reverseArray(n);
+        System.out.print("After reversing: ");
         printArray(n);
 
     }
@@ -28,8 +30,5 @@ public class Problem03 {
         for (int i = 0; i < a.length; ++i) {
             System.out.print(  a[i] + " ");
         }
-
-        System.out.print("Before reversing: ");
-
     }
 }

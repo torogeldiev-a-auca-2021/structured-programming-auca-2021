@@ -2,7 +2,6 @@ import java.util.*;
 
 public class Problem02 {
     static Scanner input = new Scanner(System.in);
-
     public static void main(String[] args) {
         while (true) {
             int year = readNumber("Year: ", "Incorrect number of year", 1, 100000);
@@ -17,24 +16,23 @@ public class Problem02 {
         if (!input.hasNextInt()) {
             System.exit(0);
         }
-        int result = input.nextInt();
-        if (result < beg || end < result) {
-            System.out.println(errorMsg + result);
+        int input = Problem02.input.nextInt();
+        if (input < beg || end < input) {
+            System.out.println(errorMsg + input);
             System.exit(1);
         }
-        return result;
+        return input;
     }
 
     static int getNumberOfDays(int year, int month) {
 
 
         int[] days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-
-        int result = days[month - 1];
+        int days_in_month = days[month - 1];
         if (isLeapYear(year) && month == 2) {
-            ++result;
+            ++days_in_month;
         }
-        return result;
+        return days_in_month;
     }
 
     static boolean isLeapYear(int year) {
