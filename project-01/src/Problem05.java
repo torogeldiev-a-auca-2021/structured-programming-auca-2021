@@ -8,8 +8,8 @@ public class Problem05 extends PApplet {
     float rectX;
     float rectY;
     float size;
-    int row;
-    int column;
+    int row = 0;
+    int column = 0;
     String Color;
 
 
@@ -59,6 +59,8 @@ public class Problem05 extends PApplet {
                     float a = rectX + i * 800 / radius;
                     float b = rectX + l * 800 / radius;
                     if (mouseX > rectX && mouseX < a &&  mouseY > rectY && mouseX < b) {
+                        fill(255,255,0);
+                        text("Row: " + row + "Column: " + column + "Color: "  ,textPosX, textPosY);
                         stroke(2);
 
                     }
@@ -78,8 +80,6 @@ public class Problem05 extends PApplet {
                 }
             }
         }
-        fill(255,255,0);
-        text("Row: ; Column:  ; Color: ;",textPosX, textPosY);
 
 
 
