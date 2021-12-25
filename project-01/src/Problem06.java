@@ -1,7 +1,7 @@
 import processing.core.*;
 
 public class Problem06 extends PApplet {
-    float alpha, beta;
+    float alpha, beta , delta;
     float posX;
     float posY;
     float drSun, drEarth, drMoon, drVenus;// изменение радиуса
@@ -82,16 +82,28 @@ public class Problem06 extends PApplet {
             translate(width / 2f, height / 2f);
             stroke(255,0 ,0 );
             circle(0 , 0 , 725);
-            translate(300, -200);
-            rotate(beta);
-            circle(0 , 0 ,100);
+            rotate(alpha);
+            circle(300 , -200 ,95);
             noStroke();
-            beta += 0.14f;
             popMatrix();
 
         } else if (mouseX >= posX && mouseX <= posX + 200 && mouseY >= posY + 3 * 48 && mouseY <= posY + 4 * 48) {
             fill(255, 0, 0);
             text("Moon", posX + 70, posY + 185);
+            noFill();
+            noStroke();
+            pushMatrix();
+            translate(width / 2f , height / 2f);
+            rotate(alpha);
+            stroke(255, 0 ,0);
+            circle(300 , -200 ,160);
+            translate(300 , -200);
+            rotate(beta);
+            stroke(255,0 ,0);
+            circle(-75 , 0 ,50);
+            noStroke();
+            popMatrix();
+
         }
 
         pushMatrix();
