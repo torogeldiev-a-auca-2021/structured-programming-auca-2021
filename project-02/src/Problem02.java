@@ -69,7 +69,6 @@ public class Problem02 {
         for (int i = 0; i < game15.length; i++) {
             for (int j = 0; j < game15[i].length; j++, counter++) {
                 game15[i][j] = counter;
-
             }
         }
         Random random = new Random();
