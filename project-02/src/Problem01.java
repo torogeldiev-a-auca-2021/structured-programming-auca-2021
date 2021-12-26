@@ -1,5 +1,4 @@
 import processing.core.*;
-
 public class Problem01 extends PApplet {
     float rectPosX;
     float rectPosY;
@@ -11,11 +10,11 @@ public class Problem01 extends PApplet {
     }
 
     public void setup() {
-        textSize(60);
+        textSize(90);
         rectS = 125;
         rectPosX = width / 2f - 2 * rectS;
         rectPosY = height / 2f - 2 * rectS;
-        initgame15(game15);
+        initGame15(game15);
     }
 
     public void draw() {
@@ -33,24 +32,45 @@ public class Problem01 extends PApplet {
                     rect(rectPosX + j * rectS, rectPosY + i * rectS, rectS, rectS);
                     noStroke();
                 }
-                int d =  game15.length + 1;
-                fill(255,255,0);
-                text(" "+ game15[i][j],rectPosX + 20 +  j * rectS ,rectPosY + 100 + i * rectS);
 
+
+                if(game15[i][j] == 16) {
+                    noFill();
+                    text(" " + game15[i][j], rectPosX + 20 + j * rectS, rectPosY + 100 + i * rectS);
+                }else if(game15 [i][j] < 16) {
+                    fill(255, 255, 0);
+                    text(" " + game15[i][j], rectPosX + 20 + j * rectS, rectPosY + 100 + i * rectS);
+                    noFill();
+                }
+                }
             }
         }
-    }
+
 
     public static void main(String[] args) {
         PApplet.main("Problem01");
     }
 
-    public static void initgame15(int[][] game15) {
+    public static void initGame15(int[][] game15) {
         int counter = 1;
         for (int i = 0; i < game15.length; i++) {
             for (int j = 0; j < game15[i].length; j++, counter++) {
                 game15[i][j] = counter;
             }
         }
+    }
+    public void shuffle(int[][]game15){
+        for(int i = game15.length - 1 ; i > 0; i--){
+            for(int j = game15.length - 1; j > 0; j--){
+//                int m = random.nextInt(i + 1);
+//                int n = random.nextInt(j + 1);
+//
+//
+//                int temp = game15[i][j];
+//                game15[i][j] = game15[m][n];
+//                game15[m][n] = temp;
+            }
+        }
+
     }
 }
