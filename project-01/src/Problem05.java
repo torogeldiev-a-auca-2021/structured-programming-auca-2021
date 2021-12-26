@@ -59,10 +59,6 @@ public class Problem05 extends PApplet {
                     float a = rectX + i * 800 / radius;
                     float b = rectX + l * 800 / radius;
                     if (mouseX > rectX && mouseX < a &&  mouseY > rectY && mouseX < b) {
-                        fill(255,255,0);
-                        text("Row: " + row + "Column: " + column + "Color: "  ,textPosX, textPosY);
-                        stroke(2);
-
                     }
                     rect(rectX + i * 800 / radius, rectY + l * 800 / radius, 800 / radius, 800 / radius);
                 }

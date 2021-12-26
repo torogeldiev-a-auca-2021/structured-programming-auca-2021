@@ -56,6 +56,7 @@ public class Problem06 extends PApplet {
             noFill();
             noStroke();
             popMatrix();
+
         } else if (mouseX >= posX && mouseX <= posX + 200 && mouseY >= posY + 48 && mouseY <= posY + 2 * 48) {
             fill(255, 0, 0);
             stroke(255, 0, 0);
@@ -71,7 +72,6 @@ public class Problem06 extends PApplet {
             noStroke();
             alpha += 0.07f;
             popMatrix();
-
 
         } else if (mouseX >= posX && mouseX <= posX + 200 && mouseY >= posY + 2 * 48 && mouseY <= posY + 3 * 48) {
             fill(255, 0, 0);
@@ -103,7 +103,6 @@ public class Problem06 extends PApplet {
             circle(-75 , 0 ,50);
             noStroke();
             popMatrix();
-
         }
 
         pushMatrix();
@@ -121,8 +120,6 @@ public class Problem06 extends PApplet {
         alpha += 0.1f;
         beta += 0.14f;
         popMatrix();
-
-
     }
 
     public static void main(String[] args) {
@@ -163,7 +160,6 @@ public class Problem06 extends PApplet {
             r -= dr;
         }
     }
-
     public void drawMoon(int x, int y, int cR, int cG, int cB, int r) {
         float dr = r / 255f;
         for (int i = 0; i < 255; i++) {
@@ -173,7 +169,6 @@ public class Problem06 extends PApplet {
             cG++;
             cB++;
             r -= dr;
-
         }
     }
 }
