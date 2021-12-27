@@ -31,9 +31,9 @@ public class Problem01 extends PApplet {
         textAlign(CENTER, CENTER);
         fill(255, 255, 0);
         text("Game15", width / 2f, 50);
-        if (isWin(game15)) {
+        if (isWin(game15) && moves != 0) {
             fill(200,162,200);
-            text("You won. Your number of moves is " + moves + ".Press Enter to continue",width / 2f, 800);
+            text("You won.Your number of moves is " + moves + ".Press Enter to continue",width / 2f, 800);
         } else {
             fill(255, 255, 0);
             text("Start/Restart: Enter", width / 2f, 800);
