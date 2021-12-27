@@ -104,36 +104,36 @@ public class Problem01 extends PApplet {
         if (key == CODED) {
             switch (keyCode) {
                 case UP:
-                    if (emptyY - 1 >= 0) {
-                        int t = game15[emptyY - 1][emptyX];
-                        game15[emptyY - 1][emptyX] = 16;
-                        game15[emptyY][emptyX] = t;
-                        emptyY--;
-                    }
-                    break;
-                case DOWN:
                     if (emptyY + 1 < game15.length) {
                         int t = game15[emptyY + 1][emptyX];
                         game15[emptyY + 1][emptyX] = 16;
                         game15[emptyY][emptyX] = t;
                         emptyY++;
+                    }
+                    break;
+                case DOWN:
+                    if (emptyY - 1 >= 0) {
+                        int t = game15[emptyY - 1][emptyX];
+                        game15[emptyY - 1][emptyX] = 16;
+                        game15[emptyY][emptyX] = t;
+                        emptyY--;
 
                     }
                     break;
                 case RIGHT:
-                    if (emptyX + 1 < game15.length) {
-                        int t = game15[emptyY][emptyX + 1];
-                        game15[emptyY][emptyX + 1] = 16;
-                        game15[emptyY][emptyX] = t;
-                        emptyX++;
-                    }
-                    break;
-                case LEFT:
                     if (emptyX - 1 >= 0) {
                         int t = game15[emptyY][emptyX - 1];
                         game15[emptyY][emptyX - 1] = 16;
                         game15[emptyY][emptyX] = t;
                         emptyX--;
+                    }
+                    break;
+                case LEFT:
+                    if (emptyX + 1 < game15.length) {
+                        int t = game15[emptyY][emptyX + 1];
+                        game15[emptyY][emptyX + 1] = 16;
+                        game15[emptyY][emptyX] = t;
+                        emptyX++;
                     }
                     break;
             }
