@@ -9,12 +9,14 @@ public class Problem01 extends PApplet {
     int[][] game15 = new int[4][4];
     public static int emptyX, emptyY;
     int moves;
+    public static boolean win;
 
     public void settings() {
         fullScreen();
     }
 
     public void setup() {
+        win = false;
         rectS = 125;
         rectPosX = width / 2f - 2 * rectS;
         rectPosY = height / 2f - 2 * rectS;
@@ -29,9 +31,15 @@ public class Problem01 extends PApplet {
         textAlign(CENTER, CENTER);
         fill(255, 255, 0);
         text("Game15", width / 2f, 50);
-        text("Start/Restart: Enter", width / 2f, 800);
+        if (isWin(game15)) {
+            fill(200,162,200);
+            text("You won. Your number of moves is " + moves + ".Press Enter to continue",width / 2f, 800);
+        } else {
+            fill(255, 255, 0);
+            text("Start/Restart: Enter", width / 2f, 800);
+        }
         textSize(50);
-        text("Moves:" + moves,width / 2f + width / 3f ,height / 2f);
+        text("Moves:" + moves, width / 2f + width / 3f, height / 2f);
         textSize(90);
         for (int i = 0; i < game15.length; i++) {
             for (int j = 0; j < game15.length; j++) {
@@ -57,6 +65,7 @@ public class Problem01 extends PApplet {
     public void keyReleased() {
         if (key == ENTER) {
             shuffle(game15);
+            win = false;
         }
         if (key == CODED) {
             switch (keyCode) {
@@ -134,4 +143,18 @@ public class Problem01 extends PApplet {
             }
         }
     }
+
+    public static boolean isWin(int[][] game15) {
+        int counter = 1;
+        for (int i = 0; i < game15.length; i++) {
+            for (int j = 0; j < game15[i].length; j++, counter++) {
+                if (game15[i][j] != counter) {
+                    return false;
+                }
+            }
+        }
+        win = true;
+        return win;
+    }
+
 }
