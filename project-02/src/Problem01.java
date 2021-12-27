@@ -1,10 +1,14 @@
 import processing.core.*;
 
+import java.util.Random;
+
 public class Problem01 extends PApplet {
-    float rectPosX;
-    float rectPosY;
-    float rectS;
+    public static float rectPosX;
+    public static float rectPosY;
+    public static float rectS;
     int[][] game15 = new int[4][4];
+    public static int emptyX, emptyY;
+
 
     public void settings() {
         fullScreen();
@@ -16,14 +20,16 @@ public class Problem01 extends PApplet {
         rectPosX = width / 2f - 2 * rectS;
         rectPosY = height / 2f - 2 * rectS;
         initGame15(game15);
+        emptyY = 3;
+        emptyX = 3;
     }
 
     public void draw() {
         background(0, 0, 0);
         textAlign(CENTER, CENTER);
-        fill(255,255,0);
-        text("Game15", width / 2f  , 100);
-        text("Start/Restart: Enter", width / 2f , 800);
+        fill(255, 255, 0);
+        text("Game15", width / 2f, 100);
+        text("Start/Restart: Enter", width / 2f, 800);
         for (int i = 0; i < game15.length; i++) {
             for (int j = 0; j < game15.length; j++) {
                 if (game15[i][j] == 16) {
@@ -38,24 +44,101 @@ public class Problem01 extends PApplet {
                     noStroke();
                 }
 
-                if (game15[i][j] == 16) {
-                    noFill();
-                    text(game15[i][j], rectPosX + j * rectS + rectS / 2f, rectPosY + i * rectS + rectS / 2);
-                } else if (game15[i][j] < 16) {
+                if (game15[i][j] != 16) {
                     fill(255, 255, 0);
                     text(game15[i][j], rectPosX + j * rectS + rectS / 2f, rectPosY + i * rectS + rectS / 2);
-                    noFill();
                 }
             }
         }
 
 
-        if (keyPressed && key == ENTER) {
-            shuffle(game15);
-        }
+//        if (keyPressed) {
+//            if (key == ENTER) {
+//                shuffle(game15);
+//            }
+//            if (key == CODED) {
+//                switch (keyCode) {
+//                    case UP:
+//                        if (emptyY - 1 >= 0) {
+//                            int t = game15[emptyY - 1][emptyX];
+//                            game15[emptyY - 1][emptyX] = 16;
+//                            game15[emptyY][emptyX] = t;
+//                            emptyY--;
+//                        }
+//                        break;
+//                    case DOWN:
+//                        if (emptyY + 1 < game15.length) {
+//                            int t = game15[emptyY + 1][emptyX];
+//                            game15[emptyY + 1][emptyX] = 16;
+//                            game15[emptyY][emptyX] = t;
+//                            emptyY++;
+//
+//                        }
+//                        break;
+//                    case RIGHT:
+//                        if (emptyX + 1 < game15.length) {
+//                            int t = game15[emptyY][emptyX + 1];
+//                            game15[emptyY][emptyX + 1] = 16;
+//                            game15[emptyY][emptyX] = t;
+//                            emptyX++;
+//                        }
+//                        break;
+//                    case LEFT:
+//                        if (emptyX - 1 >= 0) {
+//                            int t = game15[emptyY][emptyX - 1];
+//                            game15[emptyY][emptyX - 1] = 16;
+//                            game15[emptyY][emptyX] = t;
+//                            emptyX--;
+//                        }
+//                        break;
+//                }
+//            }
+//        }
 
     }
 
+    public void keyReleased() {
+        if (key == ENTER) {
+            shuffle(game15);
+        }
+        if (key == CODED) {
+            switch (keyCode) {
+                case UP:
+                    if (emptyY - 1 >= 0) {
+                        int t = game15[emptyY - 1][emptyX];
+                        game15[emptyY - 1][emptyX] = 16;
+                        game15[emptyY][emptyX] = t;
+                        emptyY--;
+                    }
+                    break;
+                case DOWN:
+                    if (emptyY + 1 < game15.length) {
+                        int t = game15[emptyY + 1][emptyX];
+                        game15[emptyY + 1][emptyX] = 16;
+                        game15[emptyY][emptyX] = t;
+                        emptyY++;
+
+                    }
+                    break;
+                case RIGHT:
+                    if (emptyX + 1 < game15.length) {
+                        int t = game15[emptyY][emptyX + 1];
+                        game15[emptyY][emptyX + 1] = 16;
+                        game15[emptyY][emptyX] = t;
+                        emptyX++;
+                    }
+                    break;
+                case LEFT:
+                    if (emptyX - 1 >= 0) {
+                        int t = game15[emptyY][emptyX - 1];
+                        game15[emptyY][emptyX - 1] = 16;
+                        game15[emptyY][emptyX] = t;
+                        emptyX--;
+                    }
+                    break;
+            }
+        }
+    }
 
     public static void main(String[] args) {
         PApplet.main("Problem01");
@@ -70,15 +153,24 @@ public class Problem01 extends PApplet {
         }
     }
 
-    public void shuffle(int[][] game15) {
+    public static void shuffle(int[][] game15) {
+        Random random = new Random();
         for (int i = game15.length - 1; i > 0; i--) {
             for (int j = game15.length - 1; j > 0; j--) {
-                int m = (int) random(i + 1);
-                int n = (int) random(j + 1);
+                int m = (int) random.nextInt(i + 1);
+                int n = (int) random.nextInt(j + 1);
 
                 int temp = game15[i][j];
                 game15[i][j] = game15[m][n];
                 game15[m][n] = temp;
+            }
+        }
+        for (int i = 0; i < game15.length; i++) {
+            for (int j = 0; j < game15[i].length; j++) {
+                if (game15[i][j] == 16) {
+                    emptyX = j;
+                    emptyY = i;
+                }
             }
         }
     }
