@@ -8,14 +8,13 @@ public class Problem01 extends PApplet {
     public static float rectS;
     int[][] game15 = new int[4][4];
     public static int emptyX, emptyY;
-
+    int moves;
 
     public void settings() {
         fullScreen();
     }
 
     public void setup() {
-        textSize(90);
         rectS = 125;
         rectPosX = width / 2f - 2 * rectS;
         rectPosY = height / 2f - 2 * rectS;
@@ -26,10 +25,14 @@ public class Problem01 extends PApplet {
 
     public void draw() {
         background(0, 0, 0);
+        textSize(50);
         textAlign(CENTER, CENTER);
         fill(255, 255, 0);
-        text("Game15", width / 2f, 100);
+        text("Game15", width / 2f, 50);
         text("Start/Restart: Enter", width / 2f, 800);
+        textSize(50);
+        text("Moves:" + moves,width / 2f + width / 3f ,height / 2f);
+        textSize(90);
         for (int i = 0; i < game15.length; i++) {
             for (int j = 0; j < game15.length; j++) {
                 if (game15[i][j] == 16) {
@@ -43,58 +46,12 @@ public class Problem01 extends PApplet {
                     rect(rectPosX + j * rectS, rectPosY + i * rectS, rectS, rectS);
                     noStroke();
                 }
-
                 if (game15[i][j] != 16) {
                     fill(255, 255, 0);
                     text(game15[i][j], rectPosX + j * rectS + rectS / 2f, rectPosY + i * rectS + rectS / 2);
                 }
             }
         }
-
-
-//        if (keyPressed) {
-//            if (key == ENTER) {
-//                shuffle(game15);
-//            }
-//            if (key == CODED) {
-//                switch (keyCode) {
-//                    case UP:
-//                        if (emptyY - 1 >= 0) {
-//                            int t = game15[emptyY - 1][emptyX];
-//                            game15[emptyY - 1][emptyX] = 16;
-//                            game15[emptyY][emptyX] = t;
-//                            emptyY--;
-//                        }
-//                        break;
-//                    case DOWN:
-//                        if (emptyY + 1 < game15.length) {
-//                            int t = game15[emptyY + 1][emptyX];
-//                            game15[emptyY + 1][emptyX] = 16;
-//                            game15[emptyY][emptyX] = t;
-//                            emptyY++;
-//
-//                        }
-//                        break;
-//                    case RIGHT:
-//                        if (emptyX + 1 < game15.length) {
-//                            int t = game15[emptyY][emptyX + 1];
-//                            game15[emptyY][emptyX + 1] = 16;
-//                            game15[emptyY][emptyX] = t;
-//                            emptyX++;
-//                        }
-//                        break;
-//                    case LEFT:
-//                        if (emptyX - 1 >= 0) {
-//                            int t = game15[emptyY][emptyX - 1];
-//                            game15[emptyY][emptyX - 1] = 16;
-//                            game15[emptyY][emptyX] = t;
-//                            emptyX--;
-//                        }
-//                        break;
-//                }
-//            }
-//        }
-
     }
 
     public void keyReleased() {
@@ -109,6 +66,7 @@ public class Problem01 extends PApplet {
                         game15[emptyY + 1][emptyX] = 16;
                         game15[emptyY][emptyX] = t;
                         emptyY++;
+                        moves++;
                     }
                     break;
                 case DOWN:
@@ -117,7 +75,7 @@ public class Problem01 extends PApplet {
                         game15[emptyY - 1][emptyX] = 16;
                         game15[emptyY][emptyX] = t;
                         emptyY--;
-
+                        moves++;
                     }
                     break;
                 case RIGHT:
@@ -126,6 +84,7 @@ public class Problem01 extends PApplet {
                         game15[emptyY][emptyX - 1] = 16;
                         game15[emptyY][emptyX] = t;
                         emptyX--;
+                        moves++;
                     }
                     break;
                 case LEFT:
@@ -134,6 +93,7 @@ public class Problem01 extends PApplet {
                         game15[emptyY][emptyX + 1] = 16;
                         game15[emptyY][emptyX] = t;
                         emptyX++;
+                        moves++;
                     }
                     break;
             }
@@ -157,8 +117,8 @@ public class Problem01 extends PApplet {
         Random random = new Random();
         for (int i = game15.length - 1; i > 0; i--) {
             for (int j = game15.length - 1; j > 0; j--) {
-                int m = (int) random.nextInt(i + 1);
-                int n = (int) random.nextInt(j + 1);
+                int m = random.nextInt(i + 1);
+                int n = random.nextInt(j + 1);
 
                 int temp = game15[i][j];
                 game15[i][j] = game15[m][n];
