@@ -1,4 +1,5 @@
 import processing.core.*;
+
 import javax.swing.*;
 
 public class Problem05 extends PApplet {
@@ -8,8 +9,6 @@ public class Problem05 extends PApplet {
     float rectX;
     float rectY;
     float size;
-    int row = 0;
-    int column = 0;
     String Color;
 
 
@@ -18,6 +17,7 @@ public class Problem05 extends PApplet {
     }
 
     public void setup() {
+        textAlign(CENTER);
         size = 750 / radius;
         textSize(30);
         textPosX = width / 2f - width / 9f;
@@ -47,37 +47,41 @@ public class Problem05 extends PApplet {
         rect(rectX, rectY, 800, 800);
         fill(0, 0, 0);
         for (int i = 0; i < radius; i++) {
-            if (i % 2 == 0) {
-                for (int l = 0; l < radius; l++) {
-                    if (l % 2 == 0) {
-                        fill(255, 255, 255);
+            for (int j = 0; j < radius; j++) {
+                if (i % 2 == 0) {
+                    if (j % 2 == 1) {
+                        fill(0);
+                        Color = "black";
                     } else {
-
-                        fill(1, 50, 32);
-
+                        fill(255, 255, 255);
+                        Color = "white";
                     }
-                    float a = rectX + i * 800 / radius;
-                    float b = rectX + l * 800 / radius;
-                    if (mouseX > rectX && mouseX < a &&  mouseY > rectY && mouseX < b) {
+                } else {
+                    if (j % 2 == 1) {
+                        fill(255, 255, 255);
+                        Color = "white";
+                    } else {
+                        fill(0);
+                        Color = "black";
                     }
-                    rect(rectX + i * 800 / radius, rectY + l * 800 / radius, 800 / radius, 800 / radius);
                 }
-            } else {
-                for (int l = 0; l < radius; l++) {
-                    if (l % 2 == 0) {
-                        fill(1, 50, 32);
-
+                noStroke();
+                rect(rectX + i * 800 / radius, rectY + j * 800 / radius, 800 / radius, 800 / radius);
+                if (mouseX >= rectX + i * 800 / radius && mouseX < rectX + i * 800 / radius + 800 / radius
+                        && mouseY >= rectY + j * 800 / radius && mouseY < rectY + j * 800 / radius + 800 / radius) {
+                    fill(255, 255, 0);
+                    text("Row: " + (j + 1) + " Column: " + (i + 1) + " Color: " + Color, width / 2f, 25);
+                    if (Color.equals("black")) {
+                        fill(0);
                     } else {
-                        fill(255, 255, 255);
+                        fill(255);
                     }
-                    rect(rectX + i * 800 / radius, rectY + l * 800 / radius, 800 / radius, 800 / radius);
-                    ellipse(mouseX,mouseY,100,100);
-
+                    strokeWeight(3);
+                    stroke(255, 0, 0);
+                    rect(rectX + i * 800 / radius + 2, rectY + j * 800 / radius + 2, 800 / radius - 10, 800 / radius- 10);
                 }
             }
         }
-
-
 
     }
 
