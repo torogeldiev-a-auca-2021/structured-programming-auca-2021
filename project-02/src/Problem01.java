@@ -32,8 +32,8 @@ public class Problem01 extends PApplet {
         fill(255, 255, 0);
         text("Game15", width / 2f, 50);
         if (isWin(game15) && moves != 0) {
-            fill(200,162,200);
-            text("You won.Your number of moves is " + moves + ".Press Enter to continue",width / 2f, 800);
+            fill(200, 162, 200);
+            text("You won.Your number of moves is " + moves + ".Press Enter to continue", width / 2f, 800);
         } else {
             fill(255, 255, 0);
             text("Start/Restart: Enter", width / 2f, 800);
@@ -116,7 +116,7 @@ public class Problem01 extends PApplet {
     public static void initGame15(int[][] game15) {
         int counter = 1;
         for (int i = 0; i < game15.length; i++) {
-            for (int j = 0; j < game15[i].length; j++, counter++) {
+            for (int j = 0; j < game15.length; j++, counter++) {
                 game15[i][j] = counter;
             }
         }
@@ -155,6 +155,46 @@ public class Problem01 extends PApplet {
         }
         win = true;
         return win;
+    }
+
+    @Override
+    public void mouseReleased() {
+        for (int i = 0; i < game15.length; i++) {
+            for (int j = 0; j < game15.length; j++) {
+                float rectX = rectPosX + j * rectS;
+                float rectY = rectPosY + i * rectS;
+                if (mouseX > rectX && mouseX < rectX + rectS && mouseY > rectY && mouseY < rectX + rectY) {
+                    if (j - 1 >= 0 && game15[i][j - 1] == game15[emptyX][emptyY]) {
+                        int temp = game15[i][j];
+                        game15[i][j] = 16;
+                        game15[i][j - 1] = temp;
+                        emptyX = j;
+                        ++moves;
+                    }
+                    if (j + 1 < 4 && game15[i][j + 1] == game15[emptyX][emptyY]) {
+                        int temp = game15[i][j];
+                        game15[i][j] = 16;
+                        game15[i][j + 1] = temp;
+                        emptyX = j;
+                        ++moves;
+                    }
+                    if (i + 1 < 4 && game15[i + 1][j] == game15[emptyX][emptyY]) {
+                        int temp = game15[i][j];
+                        game15[i][j] = 16;
+                        game15[i + 1][j] = temp;
+                        emptyY = i;
+                        ++moves;
+                    }
+                    if (i - 1 >= 0 && game15[i - 1][j] == game15[emptyX][emptyY]) {
+                        int temp = game15[i][j];
+                        game15[i][j] = 16;
+                        game15[i - 1][j] = temp;
+                        emptyY = i;
+                        ++moves;
+                    }
+                }
+            }
+        }
     }
 
 }

@@ -59,13 +59,8 @@ public class Problem04 extends PApplet {
                 rect(rectX + i * circleR, rectY + j * circleR, circleR, circleR);
             }
         }
-        fill(0, 0, 0, 40);
-        rect(0, 0, width, height);
 
         strokeWeight(1);
-
-        fill(255, 0, 0);
-        circle(circleX1, circleY1, circleR);
 
         fill(255, 255, 0);
         circle(circleX2, circleY2, circleR);
@@ -107,6 +102,11 @@ public class Problem04 extends PApplet {
             circleY2 = rectY + circleR / 2f + (int) random(15) * circleR;
 
         }
+        fill(0, 0, 0, 40);
+        rect(0, 0, width, height);
+        fill(255, 0, 0);
+        circle(circleX1, circleY1, circleR);
+
     }
 
     public static void main(String[] args) {

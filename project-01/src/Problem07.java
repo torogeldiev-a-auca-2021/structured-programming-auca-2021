@@ -6,7 +6,6 @@ public class Problem07 extends PApplet {
     float stars;
     float rays;
     float alpha, beta, angle;
-    float distance;
     float radius;
     float maxRadius = 50;
     float minRadius = 25;
@@ -36,7 +35,6 @@ public class Problem07 extends PApplet {
             JOptionPane.showMessageDialog(null, "incorrect number: ");
             System.exit(1);
         }
-        distance = 8;
         radius = 50;
     }
 
