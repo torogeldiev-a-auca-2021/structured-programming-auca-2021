@@ -163,29 +163,29 @@ public class Problem01 extends PApplet {
             for (int j = 0; j < game15.length; j++) {
                 float rectX = rectPosX + j * rectS;
                 float rectY = rectPosY + i * rectS;
-                if (mouseX > rectX && mouseX < rectX + rectS && mouseY > rectY && mouseY < rectX + rectY) {
-                    if (j - 1 >= 0 && game15[i][j - 1] == game15[emptyX][emptyY]) {
+                if (mouseX > rectX && mouseX < rectX + rectS && mouseY > rectY && mouseY < rectX + rectS) {
+                    if (j - 1 >= 0 && game15[i][j - 1] == 16) {
                         int temp = game15[i][j];
                         game15[i][j] = 16;
                         game15[i][j - 1] = temp;
                         emptyX = j;
                         ++moves;
                     }
-                    if (j + 1 < 4 && game15[i][j + 1] == game15[emptyX][emptyY]) {
+                    if (j + 1 < 4 && game15[i][j + 1] == 16) {
                         int temp = game15[i][j];
                         game15[i][j] = 16;
                         game15[i][j + 1] = temp;
                         emptyX = j;
                         ++moves;
                     }
-                    if (i + 1 < 4 && game15[i + 1][j] == game15[emptyX][emptyY]) {
+                    if (i + 1 < 4 && game15[i + 1][j] == 16) {
                         int temp = game15[i][j];
                         game15[i][j] = 16;
                         game15[i + 1][j] = temp;
                         emptyY = i;
                         ++moves;
                     }
-                    if (i - 1 >= 0 && game15[i - 1][j] == game15[emptyX][emptyY]) {
+                    if (i - 1 >= 0 && game15[i - 1][j] == 16) {
                         int temp = game15[i][j];
                         game15[i][j] = 16;
                         game15[i - 1][j] = temp;
